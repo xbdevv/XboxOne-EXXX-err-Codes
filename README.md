@@ -90,9 +90,15 @@ In that scenario, the console boots into the Recovery screen, and an offline OS 
 
 The observed behavior suggests a possible correlation between the Microsoft network update failure and this partition inconsistency scenario. Further investigation is required to confirm the root cause.
 
-* <img width="427" height="320" alt="xbox_devkit_proto1" src="https://github.com/user-attachments/assets/b30f9100-48de-4d84-b3a2-0c3f1d06a21f" />
-* <img width="427" height="320" alt="xbox_picture_dev_kit_proto2" src="https://github.com/user-attachments/assets/069e9f5b-ff9c-4809-b93e-956e5c52b760" />
+ <img width="427" height="320" alt="xbox_devkit_proto1" src="https://github.com/user-attachments/assets/b30f9100-48de-4d84-b3a2-0c3f1d06a21f" />
+ <img width="427" height="320" alt="xbox_picture_dev_kit_proto2" src="https://github.com/user-attachments/assets/069e9f5b-ff9c-4809-b93e-956e5c52b760" />
 
+ In the registry, we have some hardware-related information, including expiration dates, such as the following registry keys:
+- [HKEY_LOCAL_MACHINE\System\XConfig\PrototypeSocExpireDate] = hex(b):xx xx xx ....
+
+- HKLM\System\XConfig\PrototypeMode = dword:00000000
+
+The hardware expiration can also be inferred from the PSP version, as I have observed differences in the values.
 
 ### E108:
 Unknown/Pending Documentation
