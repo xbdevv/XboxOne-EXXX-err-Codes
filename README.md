@@ -71,6 +71,28 @@ This error seems to occur whenever an OS file cannot be found or is corrupted, e
 
 ### E107 UEM_HOST_ENGINEERING_HARDWARE_EXPIRED:
 Unknown/Pending Documentation
+This error occurs when attempting to perform an OS update through the Microsoft network.
+
+Test environment: This test was performed on the latest prototype devkit version.
+
+OS version 10.0.18363.9135: Once connected to the Microsoft network, accepting the update results in the following error code: 0x8B050076 0x00000000 0x00000304.
+OS versions 10.0.26100.xxx and later: Once connected to the Microsoft network, accepting the update results in the following error code: E107 00025775 06830009.
+The console then boots into the Recovery screen, requiring an offline OS update using an OSU1 package.
+Data loss and partition impact:
+
+Data is deleted from the XBFS partition image, in addition to the "User Content" partition etc.
+
+Possible correlation with a known failure scenario:
+
+This symptom appears similar to the scenario in which the boot.bak file (boot.bin + a modified sequence number) is injected into the XBFS partition without the associated partitions ("User Content", "System Update", etc.).
+
+In that scenario, the console boots into the Recovery screen, and an offline OS update is required to restore the system to a consistent state.
+
+The observed behavior suggests a possible correlation between the Microsoft network update failure and this partition inconsistency scenario. Further investigation is required to confirm the root cause.
+
+* <img width="427" height="320" alt="xbox_devkit_proto1" src="https://github.com/user-attachments/assets/b30f9100-48de-4d84-b3a2-0c3f1d06a21f" />
+* <img width="427" height="320" alt="xbox_picture_dev_kit_proto2" src="https://github.com/user-attachments/assets/069e9f5b-ff9c-4809-b93e-956e5c52b760" />
+
 
 ### E108:
 Unknown/Pending Documentation
